@@ -45,7 +45,7 @@
   font-weight: 500;
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
   .locationSelect {
     margin-left: 1rem;
@@ -109,7 +109,7 @@
   font-weight: 500;
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }
 .eventsOnlineCards {
@@ -153,8 +153,11 @@
   margin-left: 7rem;
   margin-bottom: 3rem;
   font-weight: 500;
+
   h1 {
     margin-bottom: 1rem;
+    font-size: 1.75rem;
+    font-weight: 600;
   }
 }
 
@@ -179,4 +182,95 @@
 }
 .category-card_title {
   text-align: center;
+}
+.title {
+  font-size: 1.75rem;
+  margin-left: 7rem;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.titleText {
+  color: #707070;
+  margin-left: 7rem;
+  margin-bottom: 1.75rem;
+}
+.cityCards {
+  display: flex;
+  margin-left: 7rem;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+.city {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-weight: 500;
+}
+.howWorksContainer {
+  display: flex;
+  gap: 2rem;
+  margin-left: 7rem;
+  margin-bottom: 4rem;
+}
+.howWorksCard {
+  width: 36rem;
+  height: 11.25rem;
+  padding: 2rem 1.5rem;
+  background-color: rgb(151, 202, 209, 0.08);
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  p {
+    color: #707070;
+    line-height: 1.4;
+    max-width: 360px;
+  }
+  .lernMore {
+    color: #00798a;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+.workstext {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.friendshipContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 1.75rem;
+  gap: 2rem;
+  max-width: 1192px;
+  margin-left: 7rem;
+  text-align: center;
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .friendshipText {
+    color: #707070;
+    line-height: 1.5;
+    margin-top: 0.75rem;
+  }
+}
+.friendshipCard {
+  text-align: left;
+  max-width: 23.5rem;
+}
+.learnMore {
+  color: #00798a;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
 }

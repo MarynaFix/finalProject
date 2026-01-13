@@ -1,0 +1,75 @@
+.footerContent {
+  background-color: #212121;
+  width: 100%;
+  padding: 2rem 12.25rem;
+}
+.createmeetup {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: #f6f7f8;
+  font-weight: 600;
+  button {
+    background-color: #212121;
+    border: 3px solid #f6f7f8;
+    border-radius: 0.5rem;
+    color: #f6f7f8;
+    font-size: 1rem;
+    padding: 0.6rem 0.8rem;
+    cursor: pointer;
+  }
+}
+.line {
+  height: 1px;
+  background-color: #707070;
+  margin: 1.5rem 0;
+}
+.columns {
+  display: flex;
+  justify-content: space-between;
+  color: #f6f7f8;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+.footerColumn {
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  p {
+    color: #c5c4c4;
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+}
+.footerIcons {
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #f6f7f8;
+  }
+  .apps {
+    display: flex;
+    gap: 2rem;
+  }
+}
+.flexIcons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30rem;
+}
+.columnsIcons {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.footerBottom {
+  color: #c5c4c4;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  margin-top: 3rem;
+}
