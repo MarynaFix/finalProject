@@ -4,6 +4,10 @@
   box-sizing: border-box;
   font-family: "Roboto";
 }
+html,
+body {
+  overflow-x: hidden;
+}
 
 header {
   display: flex;
@@ -79,4 +83,59 @@ header {
   align-items: center;
   gap: 0.3rem;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "logo notifications"
+      "search search";
+    gap: 0.5rem;
+    align-items: start;
+    justify-items: center;
+    margin: 0;
+  }
+
+  header > a {
+    grid-area: logo;
+    justify-self: center;
+  }
+
+  .notifications {
+    grid-area: notifications;
+    justify-self: center;
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 0;
+    font-size: 0.75rem;
+  }
+
+  .searchDiv {
+    grid-area: search;
+    width: 90%;
+    max-width: 300px;
+    margin: auto;
+  }
+
+  #searchbar {
+    max-width: 250px;
+    width: 100%;
+  }
+
+  #searchbar {
+    padding: 0.7rem 2.5rem;
+  }
+  #mountain {
+    display: none;
+  }
+  .loupeDiv {
+    padding: 0.6rem 1rem;
+  }
 }

@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles/page2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -28,7 +34,35 @@
         <div class="signup"><span>Sing up</span></div>
       </div>
     </header>
+    <main>
+      <div class="mainContent">
+        <section class="firstColumn">
+          <h1>Events near New York, NY</h1>
+          <p class="learnMore">Events</p>
+          <div class="filterContainer">
+            <select class="filter" id="typeFilter">
+              <option value="All" selected>Any type</option>
+            </select>
+            <select class="filter" id="distanceFilter">
+              <option value="All" selected>Any distance</option>
+            </select>
+            <select class="filter" id="categoryFilter">
+              <option value="All" selected>Any category</option>
+            </select>
+          </div>
 
+          <section class="eventsSection">
+            <div id="eventsNYCards" class="events-grid"></div>
+          </section>
+        </section>
+        <section class="secondColumn">
+          <p>Find events near</p>
+          <h3>New York, NY</h3>
+          <img id="mapImg" src="./assets/images_page2/ny.png" alt="ny" />
+          <img id="map" src="./assets/images_page2/button.png" alt="btn" />
+        </section>
+      </div>
+    </main>
     <footer>
       <div class="footerContent">
         <div class="createmeetup">
@@ -93,5 +127,6 @@
         </div>
       </div>
     </footer>
+    <script src="scripts/script.js"></script>
   </body>
 </html>

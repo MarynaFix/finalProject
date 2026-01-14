@@ -5,6 +5,11 @@
   font-family: "Roboto";
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -88,6 +93,53 @@ header {
   cursor: pointer;
 }
 
+@media (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "logo notifications" "search search";
+    gap: 0.5rem;
+    align-items: start;
+    justify-items: center;
+    margin: 0;
+  }
+  header > a {
+    grid-area: logo;
+    justify-self: center;
+  }
+  .notifications {
+    grid-area: notifications;
+    justify-self: center;
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 0;
+    font-size: 0.75rem;
+  }
+  .searchDiv {
+    grid-area: search;
+    width: 90%;
+    max-width: 300px;
+    margin: auto;
+  }
+  #searchbar {
+    max-width: 250px;
+    width: 100%;
+  }
+  #searchbar {
+    padding: 0.7rem 2.5rem;
+  }
+  #mountain {
+    display: none;
+  }
+  .loupeDiv {
+    padding: 0.6rem 1rem;
+  }
+}
 .footerContent {
   background-color: #212121;
   width: 100%;
@@ -149,8 +201,7 @@ header {
 
 .flexIcons {
   display: flex;
-  justify-content: flex-start;
-  gap: 30rem;
+  justify-content: space-between;
 }
 
 .columnsIcons {
@@ -166,4 +217,155 @@ header {
   justify-content: space-between;
   max-width: 800px;
   margin-top: 3rem;
+}
+
+@media (max-width: 600px) {
+  .footerContent {
+    padding: 1rem;
+  }
+  .columns {
+    margin-bottom: 1rem;
+  }
+  .footerIcons h3 {
+    margin-bottom: 0;
+  }
+  .columnsIcons {
+    gap: 1rem;
+  }
+  .mobileNone {
+    display: none;
+  }
+  .loadapps {
+    display: none;
+  }
+  .footerBottom {
+    margin-top: 1rem;
+  }
+}
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 6rem 5rem 7rem;
+}
+
+.firstSection {
+  display: flex;
+  flex-direction: column;
+}
+.firstSection h1 {
+  font-weight: 500;
+  font-size: 1.75rem;
+}
+
+.learnMore {
+  color: #00798a;
+  font-weight: 600;
+  font-size: 1.25rem;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-bottom: 0.8rem;
+  margin-top: 1rem;
+}
+
+.filterContainer {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter {
+  border: none;
+  border-radius: 40px;
+  background-color: #f6f7f8;
+  padding: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.eventsSection {
+  width: 100%;
+  max-width: 37.5rem;
+}
+
+.eventNY-card {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #d9d9d9;
+}
+
+.eventNY-card_date {
+  color: #7c6f50;
+  font-size: 0.75rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+}
+
+.eventNY-card_title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #212121;
+}
+
+.eventNY-card_meta {
+  font-size: 0.75rem;
+  color: #707070;
+}
+
+.attending {
+  font-size: 0.75rem;
+  color: #707070;
+  margin-top: 3rem;
+}
+
+.secondColumn {
+  position: relative;
+}
+.secondColumn p {
+  font-size: 0.75rem;
+}
+.secondColumn h3 {
+  font-size: 1.25rem;
+}
+.secondColumn #map {
+  position: absolute;
+  top: 12%;
+  left: 25%;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .mainContent {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .firstSection h1 {
+    font-size: 1rem;
+  }
+  .filterContainer {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.5rem;
+  }
+  .eventsSection {
+    max-width: 100%;
+  }
+  .secondColumn {
+    display: none;
+  }
+}
+@media (min-width: 600px) and (max-width: 1024px) {
+  .mainContent {
+    padding: 2rem;
+  }
+  .secondColumn {
+    display: none;
+  }
 }/*# sourceMappingURL=page2.css.map */

@@ -150,6 +150,87 @@ const onlineEvents = [
   ),
 ];
 
+class EventnewYork {
+  constructor(image, dateString, title, category, distance, attending) {
+    this.image = image;
+    this.date = dateString;
+    this.title = title;
+    this.category = category;
+    this.distance = distance;
+    this.attending = attending;
+  }
+  toCardNY() {
+    const card = document.createElement("div");
+    card.className = "eventNY-card";
+    card.innerHTML = `
+      <img src="${this.image}" alt="${this.title}" class="eventNY-cardImg">
+      <div class="eventNY-card_body">
+      <p class="eventNY-card_date">${this.date}</p>
+        <h3 class="eventNY-card_title">${this.title}</h3>
+        <p class="eventNY-card_meta">${this.category} ${this.distance} </p>
+       <p class="attending">${this.attending} attendees</p>
+       </div> 
+      </div>
+    `;
+    return card;
+  }
+}
+const eventsNY = [
+  new EventnewYork(
+    "./assets/images_page2/1.png",
+    "Wed, Mar 13 · 11:30 PM UTC",
+    "All Nations - Manhattan Missions Church Bible Study",
+    "Hobbies and Passions",
+    "5 km",
+    "10"
+  ),
+  new EventnewYork(
+    "./assets/images_page2/2.png",
+    "Sat, Mar 23 · 3:00 PM UTC",
+    "INFJ Personality Type - Coffee Shop Meet & Greet",
+    "Hobbies and Passions",
+    "25 km",
+    "99"
+  ),
+  new EventnewYork(
+    "./assets/images_page2/3.png",
+    "Wed, Mar 13 · 11:30 PM UTC",
+    "NYC AI Users - AI Tech Talks, Demo & Social: RAG Search and Customer Experience",
+    "Technology",
+    "50 km",
+    "43"
+  ),
+  new EventnewYork(
+    "./assets/images_page2/4.png",
+    "Wed, Mar 13 · 11:30 PM UTC",
+    "Book 40+ Appointments Per Month Using AI and Automation",
+    "Technology",
+    "Online",
+    ""
+  ),
+  new EventnewYork(
+    "./assets/images_page2/5.png",
+    "Wed, Mar 13 · 11:30 PM UTC",
+    "Day All Nations - Manhattan Missions Church Bible Study Idea and Strategy",
+    "Hobbies and Passions",
+    "Online",
+    "77"
+  ),
+  new EventnewYork(
+    "./assets/images_page2/6.png",
+    "Thu, Mar 14 · 11:00 PM UTC",
+    "Over 40s, 50s, & 60s Senior Singles Chat, Meet & Dating Community",
+    "Hobbies and Passions",
+    "Online",
+    "140"
+  ),
+];
+function renderEventsforSecondPage(containerId, eventsArray) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = "";
+  eventsArray.forEach((ev) => container.appendChild(ev.toCardNY()));
+}
 // Render helper
 function renderEvents(containerId, eventsArray) {
   const container = document.getElementById(containerId);
@@ -157,8 +238,6 @@ function renderEvents(containerId, eventsArray) {
   container.innerHTML = "";
   eventsArray.forEach((ev) => container.appendChild(ev.toCardElement()));
 }
-
-
 
 const categoriesCards = [
   { image: "./assets/icons/traveloutdoor.svg", title: "Travel and Outdoor" },
@@ -196,18 +275,13 @@ function renderCategories(containerId, categoriesArray) {
     `;
     container.appendChild(card);
   });
-};
-
-
-
+}
 
 // Initialize on DOM ready
-document.addEventListener("DOMContentLoaded", () =>
-  renderEvents("eventsCards", events)
-);
-document.addEventListener("DOMContentLoaded", () =>
-  renderEvents("eventsOnlineCards", onlineEvents)
-);
-document.addEventListener("DOMContentLoaded", () =>
-  renderCategories("categoriesContainer", categoriesCards)
-);
+document.addEventListener("DOMContentLoaded", () => {
+  renderEvents("eventsCards", events);
+  renderEvents("eventsOnlineCards", onlineEvents);
+  renderCategories("categoriesContainer", categoriesCards);
+  renderEventsforSecondPage("eventsNYCards", eventsNY);
+});
+// Populate the type filter with unique categories from events

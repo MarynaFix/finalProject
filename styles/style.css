@@ -5,6 +5,11 @@
   font-family: "Roboto";
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -88,6 +93,53 @@ header {
   cursor: pointer;
 }
 
+@media (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  header {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "logo notifications" "search search";
+    gap: 0.5rem;
+    align-items: start;
+    justify-items: center;
+    margin: 0;
+  }
+  header > a {
+    grid-area: logo;
+    justify-self: center;
+  }
+  .notifications {
+    grid-area: notifications;
+    justify-self: center;
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 0;
+    font-size: 0.75rem;
+  }
+  .searchDiv {
+    grid-area: search;
+    width: 90%;
+    max-width: 300px;
+    margin: auto;
+  }
+  #searchbar {
+    max-width: 250px;
+    width: 100%;
+  }
+  #searchbar {
+    padding: 0.7rem 2.5rem;
+  }
+  #mountain {
+    display: none;
+  }
+  .loupeDiv {
+    padding: 0.6rem 1rem;
+  }
+}
 .heading {
   display: flex;
   flex-direction: row;
@@ -386,6 +438,224 @@ header {
   margin-top: 1rem;
 }
 
+@media (max-width: 700px) {
+  .heading {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .heading img {
+    width: 13.4rem;
+  }
+  .peopleTextContainer {
+    max-width: 20rem;
+    align-items: center;
+  }
+  .peopleTextContainer h1 {
+    font-size: 1.5rem;
+  }
+  .peopleTextContainer #mainText {
+    font-size: 0.75rem;
+  }
+  .eventsNear {
+    margin-left: 1rem;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+  .eventsNear h1 {
+    font-size: 1.25rem;
+  }
+  .eventsNear .locationSelect {
+    max-width: 180px;
+    font-size: 0.8rem;
+  }
+  .eventsNear #seeAll {
+    display: none;
+  }
+  .eventsCards {
+    margin: 1rem 0rem;
+    gap: 0rem;
+  }
+  .event-card {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    padding: 1rem;
+    margin-left: 1rem;
+    justify-content: flex-start;
+    border-top: 1px solid #d9d9d9;
+    gap: 1rem;
+    max-height: 150px;
+  }
+  .event-cardImg {
+    height: 50%;
+  }
+  .event-card_body {
+    padding: 0rem;
+  }
+  .event-card_body h3 {
+    font-size: 0.875rem;
+  }
+  .event-card_body .event-card_meta {
+    font-size: 0.7rem;
+  }
+  .event-card_body p {
+    font-size: 0.7rem;
+    margin: 0rem;
+  }
+  .event-card_body .event-card_info {
+    display: none;
+  }
+  .calendarIcon {
+    display: none;
+  }
+  .onlineEvents {
+    margin-top: 0rem;
+  }
+  .onlineEvents h1 {
+    font-size: 1.25rem;
+  }
+  .onlineEvents #seeAll {
+    display: none;
+  }
+  .eventsOnlineCards {
+    justify-content: center;
+    margin: 1rem 1rem;
+    gap: 0rem;
+  }
+  .joinMeetup {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    gap: 1.5rem;
+  }
+  .topCategories {
+    margin-left: 1rem;
+  }
+  .topCategories h1 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+  .categoriesContainer {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .title {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+  .titleText {
+    font-size: 0.875rem;
+    margin-left: 1rem;
+  }
+  .cityCards {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0rem 1rem;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .cityCards .city {
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+  }
+  .cityCards img {
+    max-width: 153px;
+  }
+  .howWorksContainer {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+  }
+  .howWorksContainer .howWorksCard {
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+  .howWorksContainer .howWorksCard h2 {
+    font-size: 1rem;
+  }
+  .howWorksContainer .howWorksCard p {
+    font-size: 0.75rem;
+    max-width: 100%;
+  }
+  .titleText {
+    display: none;
+  }
+  .friendshipContainer {
+    flex-direction: column;
+    margin: 1rem;
+    padding: 0;
+    gap: 1.5rem;
+  }
+  .friendshipContainer .titleOfCard {
+    font-size: 1.25rem;
+  }
+  .friendshipContainer .friendshipText {
+    font-size: 0.875rem;
+  }
+  .friendshipContainer .friendshipCard {
+    max-width: 100vh;
+    text-align: center;
+  }
+  .friendshipContainer .friendshipCard img {
+    max-width: 80%;
+  }
+}
+@media (min-width: 600px) and (max-width: 1024px) {
+  .heading {
+    margin-left: 2rem;
+    gap: 2rem;
+  }
+  .eventsCards {
+    justify-content: center;
+    margin: 1rem 2rem;
+  }
+  .eventsOnlineCards {
+    justify-content: center;
+    margin: 1rem 2rem;
+  }
+  .joinMeetup {
+    margin-left: 2rem;
+    max-width: 90%;
+  }
+  .topCategories {
+    margin-left: 2rem;
+  }
+  .topCategories .categoriesContainer {
+    flex-wrap: wrap;
+  }
+  .cityCards {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+  }
+  .title {
+    margin-left: 2rem;
+  }
+  .titleText {
+    margin-left: 2rem;
+  }
+  .howWorksContainer {
+    margin-left: 0rem;
+  }
+  .howWorksCard {
+    height: auto;
+  }
+  .friendshipContainer {
+    margin-left: 2rem;
+    flex-wrap: wrap;
+  }
+}
 .footerContent {
   background-color: #212121;
   width: 100%;
@@ -447,8 +717,7 @@ header {
 
 .flexIcons {
   display: flex;
-  justify-content: flex-start;
-  gap: 30rem;
+  justify-content: space-between;
 }
 
 .columnsIcons {
@@ -464,4 +733,28 @@ header {
   justify-content: space-between;
   max-width: 800px;
   margin-top: 3rem;
+}
+
+@media (max-width: 600px) {
+  .footerContent {
+    padding: 1rem;
+  }
+  .columns {
+    margin-bottom: 1rem;
+  }
+  .footerIcons h3 {
+    margin-bottom: 0;
+  }
+  .columnsIcons {
+    gap: 1rem;
+  }
+  .mobileNone {
+    display: none;
+  }
+  .loadapps {
+    display: none;
+  }
+  .footerBottom {
+    margin-top: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */
