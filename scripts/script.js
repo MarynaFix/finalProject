@@ -151,13 +151,22 @@ const onlineEvents = [
 ];
 
 class EventnewYork {
-  constructor(image, dateString, title, category, distance, attending) {
+  constructor(
+    image,
+    dateString,
+    title,
+    category,
+    distance,
+    attending,
+    type = "In-person"
+  ) {
     this.image = image;
     this.date = dateString;
     this.title = title;
     this.category = category;
     this.distance = distance;
     this.attending = attending;
+    this.type = type;
   }
   toCardNY() {
     const card = document.createElement("div");
@@ -182,7 +191,8 @@ const eventsNY = [
     "All Nations - Manhattan Missions Church Bible Study",
     "Hobbies and Passions",
     "5 km",
-    "10"
+    "10",
+    "In-person"
   ),
   new EventnewYork(
     "./assets/images_page2/2.png",
@@ -190,7 +200,8 @@ const eventsNY = [
     "INFJ Personality Type - Coffee Shop Meet & Greet",
     "Hobbies and Passions",
     "25 km",
-    "99"
+    "99",
+    "In-person"
   ),
   new EventnewYork(
     "./assets/images_page2/3.png",
@@ -198,7 +209,8 @@ const eventsNY = [
     "NYC AI Users - AI Tech Talks, Demo & Social: RAG Search and Customer Experience",
     "Technology",
     "50 km",
-    "43"
+    "43",
+    "In-person"
   ),
   new EventnewYork(
     "./assets/images_page2/4.png",
@@ -206,7 +218,8 @@ const eventsNY = [
     "Book 40+ Appointments Per Month Using AI and Automation",
     "Technology",
     "Online",
-    ""
+    "",
+    "Online"
   ),
   new EventnewYork(
     "./assets/images_page2/5.png",
@@ -214,7 +227,8 @@ const eventsNY = [
     "Day All Nations - Manhattan Missions Church Bible Study Idea and Strategy",
     "Hobbies and Passions",
     "Online",
-    "77"
+    "77",
+    "Online"
   ),
   new EventnewYork(
     "./assets/images_page2/6.png",
@@ -222,9 +236,11 @@ const eventsNY = [
     "Over 40s, 50s, & 60s Senior Singles Chat, Meet & Dating Community",
     "Hobbies and Passions",
     "Online",
-    "140"
+    "140",
+    "Online"
   ),
 ];
+
 function renderEventsforSecondPage(containerId, eventsArray) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -277,11 +293,60 @@ function renderCategories(containerId, categoriesArray) {
   });
 }
 
-// Initialize on DOM ready
+function filterEvents() {
+  const typeFilter = document.getElementById("typeFilter").value;
+  const distanceFilter = document.getElementById("distanceFilter").value;
+  const categoryFilter = document.getElementById("categoryFilter").value;
+
+  let filteredEvents = eventsNY.filter((event) => {
+    const matchType = typeFilter === "All" || event.type === typeFilter;
+    const matchDistance =
+      distanceFilter === "All" || event.distance === distanceFilter;
+    const matchCategory =
+      categoryFilter === "All" || event.category === categoryFilter;
+
+    return matchType && matchDistance && matchCategory;
+  });
+
+  renderEventsforSecondPage("eventsNYCards", filteredEvents);
+}
+
+function populateFilters() {
+  const categories = [...new Set(eventsNY.map((event) => event.category))];
+  const categoryFilter = document.getElementById("categoryFilter");
+  categories.forEach((category) => {
+    const option = document.createElement("option");
+    option.value = category;
+    option.textContent = category;
+    categoryFilter.appendChild(option);
+  });
+
+  
+  const distances = [...new Set(eventsNY.map((event) => event.distance))];
+  const distanceFilter = document.getElementById("distanceFilter");
+  distances.forEach((distance) => {
+    const option = document.createElement("option");
+    option.value = distance;
+    option.textContent = distance;
+    distanceFilter.appendChild(option);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderEvents("eventsCards", events);
   renderEvents("eventsOnlineCards", onlineEvents);
   renderCategories("categoriesContainer", categoriesCards);
   renderEventsforSecondPage("eventsNYCards", eventsNY);
+
+ 
+  const typeFilter = document.getElementById("typeFilter");
+  const distanceFilter = document.getElementById("distanceFilter");
+  const categoryFilter = document.getElementById("categoryFilter");
+
+  if (typeFilter && distanceFilter && categoryFilter) {
+    populateFilters();
+    typeFilter.addEventListener("change", filterEvents);
+    distanceFilter.addEventListener("change", filterEvents);
+    categoryFilter.addEventListener("change", filterEvents);
+  }
 });
-// Populate the type filter with unique categories from events

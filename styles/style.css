@@ -620,6 +620,10 @@ header {
     justify-content: center;
     margin: 1rem 2rem;
   }
+  .event-card {
+    align-items: center;
+    justify-content: center;
+  }
   .eventsOnlineCards {
     justify-content: center;
     margin: 1rem 2rem;
