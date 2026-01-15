@@ -151,15 +151,7 @@ const onlineEvents = [
 ];
 
 class EventnewYork {
-  constructor(
-    image,
-    dateString,
-    title,
-    category,
-    distance,
-    attending,
-    type = "In-person"
-  ) {
+  constructor(image, dateString, title, category, distance, attending, type) {
     this.image = image;
     this.date = dateString;
     this.title = title;
@@ -192,7 +184,7 @@ const eventsNY = [
     "Hobbies and Passions",
     "5 km",
     "10",
-    "In-person"
+    "Offline"
   ),
   new EventnewYork(
     "./assets/images_page2/2.png",
@@ -201,7 +193,7 @@ const eventsNY = [
     "Hobbies and Passions",
     "25 km",
     "99",
-    "In-person"
+    "Offline"
   ),
   new EventnewYork(
     "./assets/images_page2/3.png",
@@ -210,7 +202,7 @@ const eventsNY = [
     "Technology",
     "50 km",
     "43",
-    "In-person"
+    "Offline"
   ),
   new EventnewYork(
     "./assets/images_page2/4.png",
@@ -312,6 +304,14 @@ function filterEvents() {
 }
 
 function populateFilters() {
+  const types = [...new Set(eventsNY.map((event) => event.type))];
+  const typeFilter = document.getElementById("typeFilter");
+  types.forEach((type) => {
+    const option = document.createElement("option");
+    option.value = type;
+    option.textContent = type;
+    typeFilter.appendChild(option);
+  });
   const categories = [...new Set(eventsNY.map((event) => event.category))];
   const categoryFilter = document.getElementById("categoryFilter");
   categories.forEach((category) => {
@@ -321,7 +321,6 @@ function populateFilters() {
     categoryFilter.appendChild(option);
   });
 
-  
   const distances = [...new Set(eventsNY.map((event) => event.distance))];
   const distanceFilter = document.getElementById("distanceFilter");
   distances.forEach((distance) => {
@@ -338,7 +337,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCategories("categoriesContainer", categoriesCards);
   renderEventsforSecondPage("eventsNYCards", eventsNY);
 
- 
   const typeFilter = document.getElementById("typeFilter");
   const distanceFilter = document.getElementById("distanceFilter");
   const categoryFilter = document.getElementById("categoryFilter");
